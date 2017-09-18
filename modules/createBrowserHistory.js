@@ -90,7 +90,7 @@ const createBrowserHistory = (props = {}) => {
   const handlePopState = (event) => {
     // Ignore extraneous popstate events in WebKit.
     if (isExtraneousPopstateEvent(event))
-      return 
+      return
 
     handlePop(getDOMLocation(event.state))
   }
@@ -169,7 +169,7 @@ const createBrowserHistory = (props = {}) => {
       const { key, state } = location
 
       if (canUseHistory) {
-        globalHistory.pushState({ key, state }, null, href)
+        globalHistory.pushState(Object.assign({}, store, {key}), null, href)
 
         if (forceRefresh) {
           window.location.href = href
@@ -211,7 +211,7 @@ const createBrowserHistory = (props = {}) => {
       const { key, state } = location
 
       if (canUseHistory) {
-        globalHistory.replaceState({ key, state }, null, href)
+        globalHistory.replaceState(Object.assign({}, store, {key}), null, href)
 
         if (forceRefresh) {
           window.location.replace(href)
