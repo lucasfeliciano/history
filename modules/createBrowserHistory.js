@@ -169,7 +169,7 @@ const createBrowserHistory = (props = {}) => {
       const { key, state } = location
 
       if (canUseHistory) {
-        globalHistory.pushState(Object.assign({}, store, {key}), null, href)
+        globalHistory.pushState(Object.assign({}, state, {key}), null, href)
 
         if (forceRefresh) {
           window.location.href = href
@@ -211,7 +211,7 @@ const createBrowserHistory = (props = {}) => {
       const { key, state } = location
 
       if (canUseHistory) {
-        globalHistory.replaceState(Object.assign({}, store, {key}), null, href)
+        globalHistory.replaceState(Object.assign({}, state, {key}), null, href)
 
         if (forceRefresh) {
           window.location.replace(href)
